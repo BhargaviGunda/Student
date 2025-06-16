@@ -7,7 +7,7 @@ const connectDB = () => {
     host: process.env.DB_HOST || 'localhost',
     user: process.env.DB_USER || 'root',
     password: process.env.DB_PASSWORD || '',
-    database: process.env.DB_NAME || 'your_database_name'
+    database: process.env.DB_NAME || 'testudent_management'
   });
 
   connection.connect((err) => {

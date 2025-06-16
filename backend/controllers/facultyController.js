@@ -1,33 +1,26 @@
-const Faculty = require('../models/facultyModel');
+// controllers/facultyController.js
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
-// @desc Get all faculty members
-// @route GET /api/faculty
 const getFaculty = async (req, res) => {
-    try {
-        const faculty = await Faculty.find();
-        res.json(faculty);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+  try {
+    const facultyMembers = await prisma.faculty.findMany();
+    res.json(facultyMembers);
+  } catch (error) {
+    res.status(500).json({ error: 'Error fetching faculty' });
+  }
 };
 
-// @desc Add a faculty member
-// @route POST /api/faculty
 const addFaculty = async (req, res) => {
-    const { name, department, email } = req.body;
-
-    try {
-        const newFaculty = new Faculty({
-            name,
-            department,
-            email
-        });
-
-        const savedFaculty = await newFaculty.save();
-        res.status(201).json(savedFaculty);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+  const { facultyId, name, email, department } = req.body;
+  try {
+    const newFaculty = await prisma.faculty.create({
+      data: { facultyId, name, email, department },
+    });
+    res.status(201).json(newFaculty);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
 
 module.exports = { getFaculty, addFaculty };

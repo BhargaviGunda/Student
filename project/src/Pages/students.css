@@ -1,0 +1,16 @@
+/* src/pages/students.css */
+.students-list {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+.students-list ul {
+    padding: 0;
+}
+
+.students-list li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}

@@ -1,0 +1,37 @@
+nav {
+  background-color: #007bff; /* Primary blue color */
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white; /* White text for contrast */
+  font-size: 16px;
+  font-weight: 500;
+  padding: 5px 10px;
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+nav a:hover {
+  background-color: #0056b3; /* Darker blue for hover */
+  border-radius: 4px; /* Rounded corners for hover */
+}
+
+.active-link {
+  font-weight: bold;
+  border-bottom: 2px solid white; /* Highlight active link */
+}

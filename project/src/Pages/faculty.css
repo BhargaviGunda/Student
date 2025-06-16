@@ -1,0 +1,25 @@
+.container {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+button {
+    margin-top: 10px;
+}
