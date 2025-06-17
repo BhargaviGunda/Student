@@ -11,34 +11,65 @@ function Login() {
   const [facultyPassword, setFacultyPassword] = useState('');
   const navigate = useNavigate();
 
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
+  
+  //   const credentials = {
+  //     userType,
+  //     id: userType === 'student' ? studentID : facultyID,
+  //     password: userType === 'student' ? studentPassword : facultyPassword,
+  //   };
+  
+  //   try {
+  //     const response = await fetch('http://localhost:5000/login', {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify(credentials),
+  //     });
+  
+  //     if (!response.ok) {
+  //       const errorMessage = await response.text();
+  //       alert(errorMessage);
+  //       return;
+  //     }
+  
+  //     navigate(userType === 'student' ? '/dashboard/profile/student' : '/dashboard/profile/faculty');
+  //   } catch (error) {
+  //     console.error('Login error:', error);
+  //     alert('Server error');
+  //   }
+  // };
   const handleLogin = async (e) => {
-    e.preventDefault();
-  
-    const credentials = {
-      userType,
-      id: userType === 'student' ? studentID : facultyID,
-      password: userType === 'student' ? studentPassword : facultyPassword,
-    };
-  
-    try {
-      const response = await fetch('http://localhost:5000/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(credentials),
-      });
-  
-      if (!response.ok) {
-        const errorMessage = await response.text();
-        alert(errorMessage);
-        return;
-      }
-  
-      navigate(userType === 'student' ? '/dashboard/profile/student' : '/dashboard/profile/faculty');
-    } catch (error) {
-      console.error('Login error:', error);
-      alert('Server error');
-    }
+  e.preventDefault();
+
+  const credentials = {
+    userType,
+    id: userType === 'student' ? studentID : facultyID,
+    password: userType === 'student' ? studentPassword : facultyPassword,
   };
+
+  try {
+    const response = await fetch('http://localhost:5000/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(credentials),
+    });
+
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      alert(errorMessage);
+      return;
+    }
+
+    localStorage.setItem('role', userType); // 👈 save role for route protection
+
+    navigate(userType === 'student' ? '/dashboard/profile/student' : '/dashboard/profile/faculty');
+  } catch (error) {
+    console.error('Login error:', error);
+    alert('Server error');
+  }
+};
+
   
   };
 

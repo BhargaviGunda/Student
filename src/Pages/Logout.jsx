@@ -6,6 +6,7 @@ function Logout() {
 
   const handleLogout = () => {
     // Perform logout actions here, e.g., clearing tokens, etc.
+      localStorage.removeItem('role');
     navigate('/');
   };
 

@@ -13,6 +13,9 @@ import Logout from './Pages/Logout';
 import StudentRegister from './Pages/StudentRegister';
 import FacultyRegister from './Pages/FacultyRegister';
 import Login from './Pages/Login';
+import ProtectedRoute from './Pages/ProtectedRoute';
+import Unauthorized from './Pages/Unauthorized';
+
 import './global.css';
 
 const router = createBrowserRouter([
@@ -27,16 +30,36 @@ const router = createBrowserRouter([
       { path: '', element: <Dashboard /> }, // Default child route for /dashboard
       { path: 'profile/student', element: <StudentProfile /> }, // Relative path
       { path: 'profile/faculty', element: <FacultyProfile /> }, // Relative path
+       {
+        path: 'students',
+        element: (
+          <ProtectedRoute allowedRole="faculty">
+            <Students />
+          </ProtectedRoute>
+        ),
+      },
+       // ✅ Student details can also be protected if needed
+      {
+        path: 'students/:id/:name',
+        element: (
+          <ProtectedRoute allowedRole="faculty">
+            <StudentDetails />
+          </ProtectedRoute>
+        ),
+      },
       { path: 'students/:id/:name', element: <StudentDetails /> },
       { path: 'students', element: <Students /> },
       { path: 'courses', element: <Course /> },
       { path: 'grades', element: <Grades /> },
       { path: 'faculty', element: <Faculty /> },
       { path: 'logout', element: <Logout /> },
+      
     ],
   },
   { path: '/register/student', element: <StudentRegister /> },
   { path: '/register/faculty', element: <FacultyRegister /> },
+    { path: '/unauthorized', element: <Unauthorized /> },
+
 ]);
 
 function App() {
