@@ -110,7 +110,7 @@ async function main() {
       department: 'CSE',
       dateOfJoining: new Date('2010-08-15'),
       specialization: 'AI and Machine Learning',
-      branch: 'CS',
+      
     },
     {
       facultyId: 'F002',
@@ -120,7 +120,7 @@ async function main() {
       department: 'IT',
       dateOfJoining: new Date('2015-03-12'),
       specialization: 'Power Systems',
-      branch: 'EE',
+      
     },
   ];
 

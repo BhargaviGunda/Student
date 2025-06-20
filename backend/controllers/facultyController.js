@@ -2,7 +2,6 @@ const { PrismaClient } = require('@prisma/client');
 const bcrypt = require('bcrypt');
 const prisma = new PrismaClient();
 
-// GET /faculty - return all registered faculty
 const getFaculty = async (req, res) => {
   try {
     const facultyMembers = await prisma.faculty.findMany();
@@ -13,29 +12,25 @@ const getFaculty = async (req, res) => {
   }
 };
 
-// POST /register - faculty registration
 const addFaculty = async (req, res) => {
   const {
-    user_id,      // corresponds to facultyId
+    facultyId,
     name,
     email,
     password,
     department,
     dateOfJoining,
     specialization,
-    branch
   } = req.body;
 
   try {
-    // Validate fields
-    if (!user_id || !name || !email || !password || !department || !dateOfJoining || !specialization || !branch) {
+    if (!facultyId || !name || !email || !password || !department || !dateOfJoining || !specialization) {
       return res.status(400).json({ error: 'All fields are required' });
     }
 
-    // Check for existing facultyId or email
     const existing = await prisma.faculty.findFirst({
       where: {
-        OR: [{ facultyId: user_id }, { email }],
+        OR: [{ facultyId }, { email }],
       },
     });
 
@@ -43,21 +38,18 @@ const addFaculty = async (req, res) => {
       return res.status(400).json({ error: 'Faculty with same ID or email already exists' });
     }
 
-    // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Insert into database
     const newFaculty = await prisma.faculty.create({
       data: {
-        facultyId: user_id,
+        facultyId,
         name,
         email,
         password: hashedPassword,
         department,
         dateOfJoining: new Date(dateOfJoining),
         specialization,
-        branch,
-      }
+      },
     });
 
     res.status(201).json({ message: 'Faculty registered successfully', faculty: newFaculty });

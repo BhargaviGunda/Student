@@ -29,5 +29,4 @@ model Faculty {
   department     String
   dateOfJoining  DateTime
   specialization String
-  branch         String
 }

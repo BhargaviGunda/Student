@@ -13,7 +13,6 @@ function FacultyRegister() {
     department: '',
     dateOfJoining: '',
     specialization: '',
-    branch: '',
   });
 
   const navigate = useNavigate();
@@ -29,19 +28,17 @@ function FacultyRegister() {
     e.preventDefault();
 
     const payload = {
-      user_id: formData.facultyId,
+      facultyId: formData.facultyId,
       name: formData.name,
       email: formData.email,
       password: formData.password,
-      role: 'faculty',
       department: formData.department,
       dateOfJoining: formData.dateOfJoining,
       specialization: formData.specialization,
-      branch: formData.branch,
     };
 
     try {
-      const response = await axios.post('http://localhost:5000/register', payload);
+      const response = await axios.post('http://localhost:5000/register/faculty', payload);
       if (response.status === 201 || response.status === 200) {
         alert('Faculty registered successfully!');
         navigate('/');
@@ -63,7 +60,6 @@ function FacultyRegister() {
         <input type="text" name="department" placeholder="Department" value={formData.department} onChange={handleChange} required />
         <input type="date" name="dateOfJoining" placeholder="Date of Joining" value={formData.dateOfJoining} onChange={handleChange} required />
         <input type="text" name="specialization" placeholder="Specialization" value={formData.specialization} onChange={handleChange} required />
-        <input type="text" name="branch" placeholder="Branch" value={formData.branch} onChange={handleChange} required />
         <button type="submit">Register</button>
       </form>
     </div>
