@@ -32,7 +32,7 @@ function StudentProfile() {
         </div>
       </div>
       <div className="profile-right">
-        <img src="/images/icon1.jpg" alt="Background" />
+        <img src="/images/five.jpg" alt="Background" />
       </div>
     </div>
   );
