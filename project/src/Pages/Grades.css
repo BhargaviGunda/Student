@@ -1,0 +1,58 @@
+/* Grades.css */
+.grades-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.grades-title {
+  text-align: center;
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+.grades-table {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.grades-header,
+.grades-row {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 2fr;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.grades-header {
+  font-weight: bold;
+  background: #007bff;
+  color: white;
+}
+
+.grade-tag {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+}
+
+.grade-A\+ { background: #28a745; }
+.grade-A { background: #17a2b8; }
+.grade-B\+ { background: #ffc107; color: black; }
+.grade-B { background: #fd7e14; }
+.grade-C { background: #ff5722; }
+.grade-D { background: #dc3545; }
+.grade-F { background: #343a40; }

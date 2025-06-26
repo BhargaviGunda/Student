@@ -99,6 +99,38 @@ app.post('/register/student', async (req, res) => {
   }
 });
 
+
+// Get individual faculty by ID
+app.get('/faculty/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const faculty = await prisma.faculty.findUnique({ where: { facultyId: id } });
+    if (!faculty) {
+      return res.status(404).json({ error: 'Faculty not found' });
+    }
+    res.json(faculty);
+  } catch (error) {
+    console.error('Error fetching faculty:', error);
+    res.status(500).json({ error: 'Failed to fetch faculty' });
+  }
+});
+
+
+// Get individual student by ID
+app.get('/student/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const student = await prisma.student.findUnique({ where: { studentId: id } });
+    if (!student) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    res.json(student);
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
 // ✅ Login for both student and faculty
 app.post('/login', async (req, res) => {
   const { userType, id, password } = req.body;

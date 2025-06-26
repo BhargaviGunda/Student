@@ -1,37 +1,75 @@
-/* Register.css */
-.register-container {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .register-container form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .register-container input {
-    width: 80%;
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .register-container button {
-    width: 70%;
-    padding: 10px;
-    border: none;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .register-container button:hover {
-    background-color: #0056b3;
-  }
-  
+/* Split layout container */
+.register-split-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Left side: Form container */
+.register-left {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Right side: Image */
+.register-right {
+  flex: 1.2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  background-color: #f2f2f2;
+}
+
+.register-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left;
+}
+
+/* Inside the left panel */
+.register-left h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Registration form styling */
+.register-left form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Input fields */
+.register-left input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Button */
+.register-left button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.register-left button:hover {
+  background-color: #0056b3;
+}

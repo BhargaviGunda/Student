@@ -67,6 +67,8 @@ import StudentRegister from './Pages/StudentRegister';
 import FacultyRegister from './Pages/FacultyRegister';
 import Login from './Pages/Login';
 import BranchSubjects from './Pages/BranchSubjects';
+
+
 import './global.css';
 
 const router = createBrowserRouter([

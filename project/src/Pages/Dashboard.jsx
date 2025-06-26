@@ -14,7 +14,6 @@ function Dashboard() {
         <h2></h2>
         <ul>
           <li><a href="/dashboard">Home</a></li>
-          <li><a href="/dashboard/students">Students</a></li>
           <li><a href="/dashboard/courses">Courses</a></li>
           <li><a href="/dashboard/grades">Grades</a></li>
           <li><a href="/profile">Profile</a></li>

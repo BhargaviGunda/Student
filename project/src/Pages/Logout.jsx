@@ -1,19 +1,23 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Logout.css';
 
 function Logout() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Perform logout actions here, e.g., clearing tokens, etc.
+    // Clear any local storage/session tokens if used
+    localStorage.clear();
     navigate('/');
   };
 
   return (
     <div className="logout-container">
-      <h1>Logout</h1>
-      <p>You have been logged out successfully.</p>
-      <button onClick={handleLogout}>Return to Login</button>
+      <div className="logout-card">
+        <h1>Logged Out</h1>
+        <p>You have been successfully logged out.</p>
+        <button onClick={handleLogout}>Return to Login</button>
+      </div>
     </div>
   );
 }
